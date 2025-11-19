@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Anil Mahadev - Professional Circus-Themed Portfolio</title>
+<style>
+  /* Reset */
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  body {
+    font-family: 'Inter', sans-serif;
+    background:
+      repeating-linear-gradient(
+        45deg,
+        #f4c2c2 0 15px,
+        #fff0f0 15px 30px
+      ),
+      repeating-linear-gradient(
+        -45deg,
+        #f4c2c2 0 15px,
+        #fff0f0 15px 30px
+      );
+    background-size: 150px 150px, 150px 150px;
+    animation: waveStripes 12s ease-in-out infinite;
+    color: #333333;
+    line-height: 1.6;
+    padding: 2rem;
+    min-height: 100vh;
+    position: relative;
+    overflow-x: hidden;
+    z-index: 0;
+  }
+
+  /* Animations */
+  @keyframes waveStripes {
+    0% { background-position: 0 0, 100px 100px; }
+    50% { background-position: 30px 30px, 70px 70px; }
+    100% { background-position: 0 0, 100px 100px; }
+  }
+  @keyframes floatCloud {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(15px); }
+  }
+  @keyframes twinkle {
+    0%, 100% { opacity: 0.7; filter: drop-shadow(0 0 3px #b22222); }
+    50% { opacity: 1; filter: drop-shadow(0 0 8px #ffb6c1); }
+  }
+  @keyframes fallConfetti {
+    0% {
+      transform: translateY(0) rotate(0deg);
+      opacity: 0.85;
+    }
+    100% {
+      transform: translateY(110vh) rotate(360deg);
+      opacity: 0;
+    }
+  }
+
+  /* Typography */
+  h1, h2, h3 {
+    font-family: 'Playfair Display', serif;
+    color: #b22222; /* muted candy cane red */
+    margin-bottom: 1rem;
+  }
+  h1 {
+    font-size: 2.8rem;
+    letter-spacing: 0.05em;
+  }
+  h2 {
+    font-size: 2rem;
+    margin-top: 2rem;
+  }
+  p {
+    margin-bottom: 1rem;
+    color: #555555;
+  }
+  a {
+    color: #b22222;
+    text-decoration: none;
+  }
+  a:focus-visible, a:hover {
+    text-decoration: underline;
+    outline: none;
+  }
+
+  /* Layout */
+  .container {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 1rem;
+  }
+  section {
+    border-left: 8px solid #f4c2c2; /* pastel pink stripe */
+    border-right: 8px solid #f4c2c2;
+    background: #fff8f9;
+    padding: 2rem 3rem;
+    margin: 3rem 0;
+    border-radius: 12px;
+    box-shadow: 0 5px 15px rgba(178, 34, 34, 0.1); /* subtle candy cane shadow */
+    position: relative;
+    z-index: 1;
+  }
+
+  /* Navigation */
+  nav {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    margin-bottom: 3rem;
+    position: relative;
+    z-index: 2;
+  }
+  nav a {
+    padding: 0.75rem 1.5rem;
+    border: 2px solid transparent;
+    border-radius: 25px;
+    transition: all 0.3s ease;
+  }
+  nav a:hover, nav a:focus-visible {
+    border-color: #b22222;
+    background: #f4c2c2;
+    outline-offset: 3px;
+  }
+
+  /* Cards */
+  .card {
+    background: white;
+    border-radius: 14px;
+    box-shadow: 0 8px 24px rgba(178, 34, 34, 0.1);
+    padding: 1.5rem;
+    margin-bottom: 1.5rem;
+    transition: transform 0.3s ease;
+  }
+  .card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 10px 30px rgba(178, 34, 34, 0.2);
+  }
+
+  /* Skills Container */
+  .skills-container {
+    display: flex;
+    overflow-x: auto;
+    gap: 1rem;
+    padding-bottom: 1rem;
+    scrollbar-width: thin;
+    scrollbar-color: #b22222 #f4c2c2;
+  }
+  .skill-pill {
+    flex: 0 0 auto;
+    background: #f4c2c2;
+    color: #b22222;
+    border-radius: 25px;
+    padding: 0.5rem 1.5rem;
+    font-weight: 600;
+    box-shadow: 0 4px 8px rgba(178, 34, 34, 0.1);
+    text-align: center;
+    white-space: nowrap;
+  }
+
+  /* Footer */
+  footer {
+    text-align: center;
+    padding: 1rem;
+    color: #999;
+    font-size: 0.9rem;
+    position: relative;
+    z-index: 1;
+  }
+
+  /* Animated Cotton Candy Clouds */
+  .cotton-cloud {
+    position: fixed;
+    width: 150px;
+    height: 100px;
+    background: radial-gradient(circle at center, rgba(255, 182, 193, 0.4), transparent 70%);
+    border-radius: 50% 50% 40% 40%;
+    filter: blur(8px);
+    animation: floatCloud 20s ease-in-out infinite;
+    opacity: 0.7;
+    z-index: 0;
+  }
+  .cotton-cloud:nth-child(1) {
+    top: 10%;
+    left: 10%;
+    animation-delay: 0s;
+  }
+  .cotton-cloud:nth-child(2) {
+    top: 30%;
+    left: 70%;
+    animation-delay: 8s;
+  }
+  .cotton-cloud:nth-child(3) {
+    top: 55%;
+    left: 40%;
+    animation-delay: 15s;
+  }
+
+  /* Twinkling Circus Lights */
+  .twinkle-lights {
+    position: fixed;
+    top: 0;
+    left: 50%;
+    width: 200px;
+    height: 20px;
+    margin-left: -100px;
+    display: flex;
+    justify-content: space-between;
+    z-index: 10;
+  }
+  .twinkle-lights span {
+    width: 12px;
+    height: 12px;
+    background-color: #b22222;
+    border-radius: 50%;
+    opacity: 0.7;
+    filter: drop-shadow(0 0 3px #b22222);
+    animation: twinkle 3s ease-in-out infinite;
+  }
+  .twinkle-lights span:nth-child(odd) {
+    animation-delay: 0s;
+  }
+  .twinkle-lights span:nth-child(even) {
+    animation-delay: 1.5s;
+  }
+
+  /* Falling Confetti */
+  .confetti-piece {
+    position: fixed;
+    top: -10px;
+    width: 8px;
+    height: 14px;
+    background-color: #f4c2c2;
+    opacity: 0.85;
+    border-radius: 4px;
+    animation: fallConfetti linear infinite;
+    z-index: 0;
+  }
+  .confetti-piece:nth-child(1) {
+    left: 15%;
+    animation-duration: 12s;
+    animation-delay: 0s;
+  }
+  .confetti-piece:nth-child(2) {
+    left: 35%;
+    animation-duration: 15s;
+    animation-delay: 4s;
+  }
+  .confetti-piece:nth-child(3) {
+    left: 55%;
+    animation-duration: 10s;
+    animation-delay: 7s;
+  }
+  .confetti-piece:nth-child(4) {
+    left: 75%;
+    animation-duration: 14s;
+    animation-delay: 3s;
+  }
+</style>
+<!-- Google Fonts for Inter and Playfair Display -->
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Playfair+Display&display=swap" rel="stylesheet">
+</head>
+<body>
+
+<nav role="navigation" aria-label="Primary navigation">
+  <a href="#about">About</a>
+  <a href="#skills">Skills</a>
+  <a href="#projects">Projects</a>
+  <a href="#music">Music &amp; Movies</a>
+  <a href="#contact">Contact</a>
+</nav>
+
+<div class="container">
+  <main>
+    <section id="about" aria-label="About Anil Mahadev">
+      <h1>Anil Mahadev</h1>
+      <h2>Platform Architect &amp; Pre-Sales Solutions Consultant</h2>
+      <p>Seasoned technology leader and Oracle ACE Pro specializing in cloud database architecture, DevOps pipelines, and scalable infrastructure automation.</p>
+      <p>Combining professional expertise with creative passions in EDM production and AI-generated video content creation.</p>
+    </section>
+
+    <section id="skills" aria-label="Technical Skills">
+      <h2>Skills Big Top</h2>
+      <div class="skills-container" role="list">
+        <div class="skill-pill" role="listitem">Oracle Database</div>
+        <div class="skill-pill" role="listitem">SQL Server</div>
+        <div class="skill-pill" role="listitem">Kubernetes</div>
+        <div class="skill-pill" role="listitem">Docker &amp; Containers</div>
+        <div class="skill-pill" role="listitem">Azure Cloud</div>
+        <div class="skill-pill" role="listitem">PowerShell Scripting</div>
+        <div class="skill-pill" role="listitem">.NET Development</div>
+      </div>
+    </section>
+
+    <section id="projects" aria-label="Portfolio Projects">
+      <h2>Portfolio Tent</h2>
+      <article class="card" aria-label="Project: Always-On Availability Groups in Linux Containers">
+        <h3>Always-On Availability Groups in Linux Containers</h3>
+        <p>Designed and implemented seamless failover clusters using Docker containers and Kubernetes orchestration for high availability SQL Server deployments.</p>
+      </article>
+      <article class="card" aria-label="Project: Analytics &amp; BI Real-time Dashboard">
+        <h3>Real-time Restaurant Sales Analytics</h3>
+        <p>Built an analytics database with real-time sample tables and BI views to provide actionable business insights.</p>
+      </article>
+    </section>
+
+    <section id="music" aria-label="Music and AI Movies Showcase">
+      <h2>Music &amp; Movie Ring</h2>
+      <p>Creative side projects include EDM music production and AI-generated horror movie video creations.</p>
+      <p><a href="#">Listen to my EDM tracks</a> | <a href="#">Watch AI Horror movies</a></p>
+    </section>
+
+    <section id="contact" aria-label="Contact Anil Mahadev">
+      <h2>Contact</h2>
+      <p>Reach out to discuss technology architecture, collaborations, or creative projects.</p>
+      <p>Email: <a href="mailto:anil@example.com">anil@example.com</a> | LinkedIn: <a href="https://www.linkedin.com/in/anilmahadev" target="_blank" rel="noopener noreferrer">anilmahadev</a></p>
+    </section>
+  </main>
+</div>
+
+<footer>
+  &copy; 2025 Anil Mahadev - All rights reserved.
+</footer>
+
+<!-- Animated Elements -->
+
+<div class="twinkle-lights" aria-hidden="true">
+  <span></span><span></span><span></span><span></span><span></span><span></span><span></span>
+</div>
+
+<div class="cotton-cloud" aria-hidden="true"></div>
+<div class="cotton-cloud" aria-hidden="true"></div>
+<div class="cotton-cloud" aria-hidden="true"></div>
+
+<div class="confetti-piece" aria-hidden="true"></div>
+<div class="confetti-piece" aria-hidden="true"></div>
+<div class="confetti-piece" aria-hidden="true"></div>
+<div class="confetti-piece" aria-hidden="true"></div>
+
+</body>
+</html>
